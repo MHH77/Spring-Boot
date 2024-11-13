@@ -1,6 +1,6 @@
 package com.mhh.Controller;
 
-import com.mhh.Service.CoachService;
+import Utile.CoachService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

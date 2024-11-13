@@ -1,6 +1,5 @@
-package com.mhh.ServiceImpl;
+package Utile;
 
-import com.mhh.Service.CoachService;
 import org.springframework.stereotype.Service;
 
 @Service

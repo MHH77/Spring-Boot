@@ -1,4 +1,4 @@
-package com.mhh.Service;
+package Utile;
 
 public interface CoachService {
     String getWorkout();
