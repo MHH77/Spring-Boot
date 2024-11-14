@@ -7,20 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@AllArgsConstructor//represent for constructor
+@AllArgsConstructor
 public class CoachController {
-    private CoachService coachService;
 
     @Autowired
-    public void setCoachService(CoachService coachService) {
-        this.coachService = coachService;
-    }
-
-//    // we don't have to use set method for the name of inject method
-//    @Autowired
-//    public void doCoach(CoachService coachService) {
-//        this.coachService = coachService;
-//    }
+    private CoachService coachService;//make the code harder to unit test
 
     @GetMapping("/dailywork")
     public String getDailyWork() {
