@@ -13,12 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class CoachController {
 
     private final CoachService coachService;
-    private final CoachService anotherCoachService;
 
-    public CoachController(@Qualifier("baseballCoachImpl") CoachService coachService,
-                           @Qualifier("baseballCoachImpl") CoachService anotherCoachService) {
+    public CoachController(@Qualifier("baseballCoachImpl") CoachService coachService
+    ) {
         this.coachService = coachService;
-        this.anotherCoachService = anotherCoachService;
+
     }
 
     @GetMapping("/dailywork")
@@ -26,10 +25,4 @@ public class CoachController {
         return coachService.getWorkout();
     }
 
-    @GetMapping("/check")
-    public String chck() {
-        // if singleton => true
-        // if prototype +> false
-        return "Comparing beans : coachService == anotherCoachService ," + (coachService == anotherCoachService);
-    }
 }
