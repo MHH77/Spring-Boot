@@ -14,8 +14,7 @@ public class CoachController {
 
     private final CoachService coachService;
 
-    public CoachController(@Qualifier("baseballCoachImpl") CoachService coachService
-    ) {
+    public CoachController(@Qualifier("swim") CoachService coachService) {
         this.coachService = coachService;
 
     }
