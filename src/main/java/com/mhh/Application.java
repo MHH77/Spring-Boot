@@ -17,7 +17,7 @@ public class Application {
     @Bean
     public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
         return args -> {
-            readStudent(studentDAO);
+            fetchStudentByLastname(studentDAO);
         };
     }
 
@@ -54,6 +54,26 @@ public class Application {
 
         // display student
         System.out.println("Reading student by id successfully... id is :" + byId);
+
+    }
+
+    private void readAllStudent(StudentDAO studentDAO) {
+
+        System.out.println("reading all student objects .... ");
+
+        for (Student student : studentDAO.findAll()) {
+            System.out.println(student);
+        }
+
+    }
+
+    private void fetchStudentByLastname(StudentDAO studentDAO) {
+
+        System.out.println("reading student objects by lastname .... ");
+
+        for (Student student : studentDAO.findByName("mohammadi")) {
+            System.out.println(student);
+        }
 
     }
 

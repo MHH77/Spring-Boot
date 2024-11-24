@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 @AllArgsConstructor
 public class StudentDAOImpl implements StudentDAO {
@@ -23,5 +25,15 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public Student findById(int id) {
         return entityManager.find(Student.class, id);
+    }
+
+    @Override
+    public List<Student> findAll() {
+        return entityManager.createQuery("from Student order by id desc", Student.class).getResultList();
+    }
+
+    @Override
+    public List<Student> findByName(String lastName) {
+        return entityManager.createQuery("from Student where lastName=: lastName", Student.class).setParameter("lastName", lastName).getResultList();
     }
 }
