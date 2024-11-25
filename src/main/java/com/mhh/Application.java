@@ -17,7 +17,7 @@ public class Application {
     @Bean
     public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
         return args -> {
-            updateStudent(studentDAO);
+            deleteStudent(studentDAO);
         };
     }
 
@@ -86,6 +86,15 @@ public class Application {
         System.out.println("updating student object ... " +student);
         studentDAO.update(student);
         System.out.println("updating student object successfully... " +student);
+
+    }
+
+    public void deleteStudent(StudentDAO studentDAO) {
+        int studentId = 5;
+        System.out.println("deleting student object .... id is :" + studentId);
+        Student student = studentDAO.findById(studentId);
+        studentDAO.delete(student.getId());
+        System.out.println("deleting student object successfully... id is :" + studentId);
 
     }
 
