@@ -7,12 +7,14 @@ import java.util.List;
 
 public interface StudentDAO {
 
-    public void save(Student student);
+    void save(Student student);
 
-    public Student findById(int id);
+    Student findById(int id);
 
-    public List<Student> findAll();
+    List<Student> findAll();
 
-    public List<Student> findByName(String lastName);
+    List<Student> findByName(String lastName);
+
+    void update(Student student);
 
 }

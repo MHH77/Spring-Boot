@@ -17,7 +17,7 @@ public class Application {
     @Bean
     public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
         return args -> {
-            fetchStudentByLastname(studentDAO);
+            updateStudent(studentDAO);
         };
     }
 
@@ -74,6 +74,18 @@ public class Application {
         for (Student student : studentDAO.findByName("mohammadi")) {
             System.out.println(student);
         }
+
+    }
+
+    private void updateStudent(StudentDAO studentDAO) {
+        int studentId = 1;
+        System.out.println("updating student object .... ");
+        Student student = studentDAO.findById(studentId);
+        System.out.println("updating student object ... by this id  :" + studentId);
+        student.setFirstName("Ya Ali");
+        System.out.println("updating student object ... " +student);
+        studentDAO.update(student);
+        System.out.println("updating student object successfully... " +student);
 
     }
 
