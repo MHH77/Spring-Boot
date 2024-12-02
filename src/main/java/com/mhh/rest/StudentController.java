@@ -2,11 +2,12 @@ package com.mhh.rest;
 
 
 import com.mhh.entity.Student;
+import com.mhh.exceptions.StudentErrorResponse;
+import com.mhh.exceptions.StudentNotFoundException;
 import jakarta.annotation.PostConstruct;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +21,10 @@ public class StudentController {
     @PostConstruct
     public void loadData() {
         students = new ArrayList<>();
-        students.add(new Student("ali","mohammadi"));
-        students.add(new Student("naser","Hejazii"));
-        students.add(new Student("layla","ghomii"));
-        students.add(new Student("reza","shiri"));
+        students.add(new Student("ali", "mohammadi"));
+        students.add(new Student("naser", "Hejazii"));
+        students.add(new Student("layla", "ghomii"));
+        students.add(new Student("reza", "shiri"));
 
     }
 
@@ -34,12 +35,24 @@ public class StudentController {
     }
 
 
-    @GetMapping("/students/{studentid}")
-    public Student getStudent(@PathVariable int studentid) {
-        return students.get(studentid);
+    @GetMapping("/students/{studentId}")
+    public Student getStudent(@PathVariable int studentId) {
+        if (studentId <= 0 ||  studentId > students.size()) {
+            throw new StudentNotFoundException("student id " + studentId + " not found");
+        }
+        return students.get(studentId);
     }
 
 
+    @ExceptionHandler
+    public ResponseEntity<StudentErrorResponse> handleException(StudentNotFoundException e) {
+        StudentErrorResponse errorResponse = new StudentErrorResponse();
+        errorResponse.setMessage(e.getMessage());
+        errorResponse.setStatus(HttpStatus.NOT_FOUND.value());
+        errorResponse.setTimestamp(System.currentTimeMillis());
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+    }
 
 
 }
