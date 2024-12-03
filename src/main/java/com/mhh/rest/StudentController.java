@@ -54,5 +54,16 @@ public class StudentController {
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler
+    public ResponseEntity<StudentErrorResponse> handleException( Exception e) {
+        StudentErrorResponse errorResponse = new StudentErrorResponse();
+        errorResponse.setMessage("The parameter entered is not valid.");
+        //errorResponse.setMessage(e.getMessage());
+        errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
+        errorResponse.setTimestamp(System.currentTimeMillis());
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+    }
+
 
 }
