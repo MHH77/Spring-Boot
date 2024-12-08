@@ -9,7 +9,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class EmployeeDAOImpl {
+public class EmployeeService {
 
     private final EmployeeDAO employeeDAO;
 
