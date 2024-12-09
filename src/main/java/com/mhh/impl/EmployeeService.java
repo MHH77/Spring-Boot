@@ -9,13 +9,12 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class EmployeeService {
+public class EmployeeService implements com.mhh.sevice.EmployeeService {
 
     private final EmployeeDAO employeeDAO;
 
-    public List<Employee> getAllEmployees() {
+    @Override
+    public List<Employee> findAll() {
         return employeeDAO.findAll();
     }
-
-
 }

@@ -19,7 +19,7 @@ public class EmployeeController {
 
     @GetMapping("/employees")
     public List<Employee> getStudents() {
-        return employeeService.getAllEmployees();
+        return employeeService.findAll();
     }
 
 }
