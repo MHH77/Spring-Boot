@@ -9,7 +9,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class EmployeeService implements com.mhh.sevice.EmployeeService {
+public class EmployeeServiceImpl implements com.mhh.sevice.EmployeeService {
 
     private final EmployeeDAO employeeDAO;
 
@@ -17,4 +17,6 @@ public class EmployeeService implements com.mhh.sevice.EmployeeService {
     public List<Employee> findAll() {
         return employeeDAO.findAll();
     }
+
+
 }
