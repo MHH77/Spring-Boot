@@ -4,9 +4,7 @@ package com.mhh.rest;
 import com.mhh.entity.Employee;
 import com.mhh.sevice.EmployeeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,8 +15,8 @@ public class EmployeeController {
 
     private final EmployeeService employeeService;
 
-    @GetMapping("/employees")
-    public List<Employee> getStudents() {
+    @GetMapping("/employee")
+    public List<Employee> getAllEmployees() {
         return employeeService.findAll();
     }
 
