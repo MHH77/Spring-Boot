@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -18,6 +19,16 @@ public class EmployeeController {
     @GetMapping("/employee")
     public List<Employee> getAllEmployees() {
         return employeeService.findAll();
+    }
+
+    @PostMapping("/employee")
+    public Employee saveEmployee(@RequestBody Employee employee) {
+        return employeeService.save(employee);
+    }
+
+    @GetMapping("/employee/{id}")
+    public Optional<Employee> getEmployeeById(@PathVariable Long id) {
+        return employeeService.findById(id);
     }
 
 }
