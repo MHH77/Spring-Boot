@@ -35,5 +35,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeDAO.deleteById(id);
     }
 
+    @Override
+    public Employee update(Employee employee) {
+        return employeeDAO.save(employee);
+    }
+
 
 }
