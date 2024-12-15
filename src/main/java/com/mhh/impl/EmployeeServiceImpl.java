@@ -30,5 +30,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeDAO.save(employee);
     }
 
+    @Override
+    public void deleteById(Long id) {
+        employeeDAO.deleteById(id);
+    }
+
 
 }
