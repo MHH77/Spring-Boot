@@ -36,4 +36,9 @@ public class EmployeeController {
         employeeService.deleteById(id);
     }
 
+    @PutMapping("/employee")
+    public Employee updateEmployee(@RequestBody Employee employee) {
+        return employeeService.update(employee);
+    }
+
 }
