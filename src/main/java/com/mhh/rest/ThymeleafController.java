@@ -12,4 +12,9 @@ public class ThymeleafController {
         return "hello"; // means hello.html
 
     }
+
+    @GetMapping("/form")
+    public String form(Model model) {
+        return "hello-form";
+    }
 }
