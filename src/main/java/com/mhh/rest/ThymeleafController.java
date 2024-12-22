@@ -17,4 +17,9 @@ public class ThymeleafController {
     public String form(Model model) {
         return "hello-form";
     }
+
+    @GetMapping("/processForm")
+    public String processForm(Model model) {
+        return "say-hello";
+    }
 }
