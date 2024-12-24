@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -16,7 +17,7 @@ public class ThymeleafController {
 
     }
 
-    @GetMapping("/form")
+    @GetMapping("/form") // OR  @RequestMapping("/form")
     public String form(Model model) {
         return "hello-form";
     }
@@ -35,7 +36,9 @@ public class ThymeleafController {
         return "say-hello";
     }
 
-    @RequestMapping("/shout2")
+    //@RequestMapping(value = "/shout2",method = RequestMethod.GET)
+    //OR
+    @GetMapping("/shout2")
     public String letShout_V2(@RequestParam("studentName") String studentName, Model model) {
 
         String result = "HeY My Friend ! " + studentName.toUpperCase();
