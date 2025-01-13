@@ -1,6 +1,7 @@
 package com.mhh.model;
 
 
+import com.mhh.validation.CourseCode;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +27,9 @@ public class Customer {
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 chars/digits")
     private String postalCode;
+
+    @CourseCode(value="TOPS", message="must start with TOPS")
+    private String courseCode;
 
 
 }
