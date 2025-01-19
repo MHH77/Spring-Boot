@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    @Before("execution(* insertStudent(..))")//execute in any class
+    @Before("execution(*  com.mhh.service.StudentService.insertStudent(..))")//execute in any class
     public void beforeInsertStudent() {
 
         System.out.println("\n=====>>> Executing @Before advice on insertStudent()");
