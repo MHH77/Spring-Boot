@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    @Before("execution(* com.mhh.service.StudentService.insertStudent(..))")
-    public void beforeAddAccountAdvice() {
+    @Before("execution(* insertStudent(..))")//execute in any class
+    public void beforeInsertStudent() {
 
-        System.out.println("\n=====>>> Executing @Before advice on addAccount()");
+        System.out.println("\n=====>>> Executing @Before advice on insertStudent()");
 
     }
 }
