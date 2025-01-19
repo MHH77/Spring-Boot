@@ -22,7 +22,7 @@ public class StudentController {
         student.setFirstName("aliii");
         student.setLastName("hhh");
         student.setCountry("USA");
-        studentService.insertStudent(student);
+        studentService.addStudent(student);
         return membershipService.insertStudent(student);
     }
 }
