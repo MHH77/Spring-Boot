@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    @Before("execution(*  com.mhh.service.*.add*(..))")//execute only methods that start with add
+    @Before("execution(boolean com.mhh.service.*.add*(..))")//execute only methods that return boolean
     public void beforeInsertStudent() {
 
         System.out.println("\n=====>>> Executing @Before advice on add*()");

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class StudentService {
     private final StudentRepository studentRepository;
 
-    public Student addStudent(Student student) {
-        return studentRepository.save(student);
+    public boolean addStudent(Student student) {
+        return false;
     }
 }
