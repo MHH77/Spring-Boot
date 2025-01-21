@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    @Before("execution(* com.mhh.service.*.add*(..))")//execute only methods that return any type
+    @Before("execution(* com.mhh.service.*.add*(com.mhh.model.Student))")//execute only methods that have student parameter
     public void beforeInsertStudent() {
 
-        System.out.println("\n=====>>> Executing @Before advice on add*()");
+        System.out.println("\n=====>>> Executing @Before advice on add*(student)");
 
     }
 }

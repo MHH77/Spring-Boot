@@ -1,5 +1,6 @@
 package com.mhh.controller;
 
+import com.mhh.model.Membership;
 import com.mhh.model.Student;
 import com.mhh.service.MembershipService;
 import com.mhh.service.StudentService;
@@ -18,11 +19,16 @@ public class StudentController {
 
     @PostMapping("/create")
     public Student processStudentForm() {
+        Membership membership = new Membership();
+        membership.setFirstName("aliii");
+        membership.setLastName("hhh");
+        membership.setCountry("USA");
         Student student = new Student();
         student.setFirstName("aliii");
         student.setLastName("hhh");
         student.setCountry("USA");
-        studentService.addStudent(student);
-        return membershipService.insertStudent(student);
+        membershipService.addStudent(membership);
+        return studentService.addStudent(student);
+
     }
 }
