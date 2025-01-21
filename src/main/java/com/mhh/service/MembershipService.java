@@ -1,17 +1,17 @@
 package com.mhh.service;
 
-import com.mhh.model.Student;
-import com.mhh.repository.StudentRepository;
+import com.mhh.model.Membership;
+import com.mhh.repository.MembershipRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
 public class MembershipService {
-    private final StudentRepository studentRepository;
+    private final MembershipRepository membershipRepository;
 
-    public Student insertStudent(Student student) {
-        return studentRepository.save(student);
+    public Membership addStudent(Membership membership) {
+        return membershipRepository.save(membership);
     }
 
 }
